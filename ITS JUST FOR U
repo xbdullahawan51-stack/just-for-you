@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Friend Memories Slideshow</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s ease;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding: 50px;
+            box-sizing: border-box;
+            color: white;
+            position: relative;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide1 { background-color: lightpink; }
+        .slide2 { background-color: lightblue; }
+        .slide3 { background-color: lightgreen; }
+        .slide4 { background-color: lightyellow; color: black; }
+        .slide5 { background-color: lavender; }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+        .nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        button {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide slide1 active">
+        <h1>Welcome to Our Memories</h1>
+        <p>Dear Best Friend,<br>This slideshow is a tribute to our beautiful friendship. Let's cherish every moment.</p>
+        <div class="nav">
+            <button onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+    <div class="slide slide2">
+        <h1>The Beginning</h1>
+        <p>Remember when we first met? That day changed everything. Your laughter lit up the room, and our adventures began. Thank you for being the spark in my life.</p>
+        <div class="nav">
+            <button onclick="prevSlide()">Prev</button>
+            <button onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+    <div class="slide slide3">
+        <h1>Shared Adventures</h1>
+        <p>From late-night talks to spontaneous trips, we've created countless memories. Hiking mountains, dancing in the rain, and supporting each other through thick and thin. You're my rock, my confidant, my everything.</p>
+        <div class="nav">
+            <button onclick="prevSlide()">Prev</button>
+            <button onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+    <div class="slide slide4">
+        <h1>Beautiful Moments</h1>
+        <p>The little things: your smile, our inside jokes, the way you always know how to cheer me up. Life is more vibrant with you in it. Thank you for the joy, the love, and the unwavering support.</p>
+        <div class="nav">
+            <button onclick="prevSlide()">Prev</button>
+            <button onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+    <div class="slide slide5">
+        <h1>Forever Grateful</h1>
+        <p>To my best friend: Thank you for all the memories, the laughs, the tears, and the growth. You're a beautiful soul, and I'm so lucky to have you. Here's to many more adventures together!</p>
+        <div class="nav">
+            <button onclick="prevSlide()">Prev</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+    </script>
+</body>
+</html>
